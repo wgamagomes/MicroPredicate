@@ -1,1 +1,1 @@
-# MicroPredicate
+# µPredicate
