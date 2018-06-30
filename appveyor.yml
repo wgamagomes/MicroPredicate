@@ -15,7 +15,7 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore 
   # nuget restore
-  - cmd:nuget restore
+  - cmd: nuget restore
 build_script:
   # output will be in ./src/bin/debug/netcoreapp1.1/publish
   - cmd: dotnet publish 
