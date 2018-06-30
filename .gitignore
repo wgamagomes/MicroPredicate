@@ -6,6 +6,9 @@
 *.user
 *.sln.docstates
 
+# Packages nuget folder
+[Pp]ackages/
+
 # Build results
 
 [Dd]ebug/
