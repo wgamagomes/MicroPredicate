@@ -29,7 +29,7 @@ namespace MicroPredicate.Test.Expression
 
             lessThan = i => x => x < i;
 
-            greaterThan = i => x => x < i;
+            greaterThan = i => x => x > i;
 
             equalTo = i => x => x == i;
 
