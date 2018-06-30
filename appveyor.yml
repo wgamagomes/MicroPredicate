@@ -1,0 +1,35 @@
+version: '1.0.{build}'
+image: Visual Studio 2017
+branches:
+  only:
+  - master
+init:
+  # Good practise, because Windows line endings are different from Unix/Linux ones
+  - cmd: git config --global core.autocrlf true
+install:
+  # Install repo specific stuff here
+  # We don’t need to install anything to build our repository (as .NET Core SDK 2.0 is installed for us)
+before_build:
+  # Display .NET Core version
+  - cmd: dotnet --version
+  # Display minimal restore text
+  - cmd: dotnet restore 
+build_script:
+  # output will be in ./src/bin/debug/netcoreapp1.1/publish
+  - cmd: dotnet publish 
+after_build:
+  # For once the build has completed
+artifacts:
+ - path: '\src\bin\Debug\netcoreapp1.1\publish'
+   name: MicroPredicate
+   type: WebDeployPackage
+clone_depth: 1
+test_script:
+  # restore packages for our unit tests
+  - cmd: dotnet restore 
+  # run the unit tests (requires changing into the test directory)
+  - cmd: cd MicroPredicate.Test
+  - cmd: dotnet test
+on_finish :
+  # any cleanup in here
+deploy: off
