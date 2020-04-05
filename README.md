@@ -1,1 +1,1 @@
-# µPredicate
+# Predicate
